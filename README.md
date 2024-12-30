@@ -6,6 +6,26 @@ Here is a simple example using the SerpApiSearch tool to create an autonomous PH
 You just need to describe the objective and add the tools you want to use.
 We will add more tools in the future.
 
+Here is the simplest example:
+
+```php
+<?php
+
+use AutoPHP\AutoPHP;
+
+require_once 'vendor/autoload.php';
+
+// You describe the objective
+$objective = 'what is 1+1 ?';
+
+$autoPHP = new AutoPHP($objective, []);
+$answer = $autoPHP->run();
+
+echo $answer;
+```
+
+Another one using serpapi to search for information:
+
 ```php
 use LLPhant\AutoPHP;
 use LLPhant\Chat\FunctionInfo\FunctionBuilder;
