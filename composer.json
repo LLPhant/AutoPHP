@@ -1,0 +1,66 @@
+{
+    "name": "llphant/autophp",
+    "description": "AutoPHP is a librairy to help you build Generative AI applications agents",
+    "keywords": ["php", "openai", "GPT-4", "api", "language", "LLM", "vectorstore", "ollama", "anthropic", "mistral"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxime Thoonsen"
+        }
+    ],
+    "require": {
+        "php": "^8.1.31",
+        "theodo-group/llphant": "^0.9.1"
+
+    },
+    "require-dev": {
+        "laravel/pint": "v1.15.3",
+        "mockery/mockery": "^1.6.12",
+        "pestphp/pest": "^v2.36.0",
+        "pestphp/pest-plugin-arch": "^2.7.0",
+        "pestphp/pest-plugin-type-coverage": "2.8.0",
+        "phpstan/phpstan": "1.10.55",
+        "rector/rector": "^0.16.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AutoPHP\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": false
+        }
+    },
+    "scripts": {
+        "lint": "pint -v",
+        "fix-lint": "pint -v --repair",
+        "refactor": "rector --debug",
+        "test:lint": "pint --test -v",
+        "test:refactor": "rector --dry-run",
+        "test:types": "phpstan analyse --ansi",
+        "test:type-coverage": "pest ./tests --type-coverage --min=100",
+        "test:unit": "pest ./tests/Unit --colors=always",
+        "test:int": "pest ./tests/Integration --colors=always",
+        "test": [
+            "@test:lint",
+            "@test:refactor",
+            "@test:types",
+            "@test:type-coverage",
+            "@test:unit"
+        ]
+    },
+    "archive": {
+        "exclude": ["examples"]
+    }
+}

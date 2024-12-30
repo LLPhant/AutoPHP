@@ -1,0 +1,10 @@
+parameters:
+    level: 8
+    paths:
+        - src
+    excludePaths:
+            analyse:
+                - src/Testing
+                - src/Experimental
+
+    reportUnmatchedIgnoredErrors: true
